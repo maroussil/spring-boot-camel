@@ -75,6 +75,31 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        
+        
+        <!-- 2 following dependencies added because of java.lang.ClassNotFoundException: javax.xml.bind.JAXBContext error,
+         see https://stackoverflow.com/questions/43574426/java-how-to-resolve-java-lang-noclassdeffounderror-javax-xml-bind-jaxbexceptio -->
+		<!-- API, java.xml.bind module -->
+		<dependency>
+		    <groupId>jakarta.xml.bind</groupId>
+		    <artifactId>jakarta.xml.bind-api</artifactId>
+		    <version>2.3.2</version>
+		</dependency>
+		
+		<!-- Runtime, com.sun.xml.bind module -->
+		<dependency>
+		    <groupId>org.glassfish.jaxb</groupId>
+		    <artifactId>jaxb-runtime</artifactId>
+		    <version>2.3.2</version>
+		</dependency>
+        
+        <!-- following dependency added because of Caused by: java.lang.NoClassDefFoundError: org/springframework/hateoas/mvc/TypeConstrainedMappingJackson2HttpMessageConverter
+        see https://stackoverflow.com/questions/56015805/classnotfoundexception-org-springframework-hateoas-resource-even-though-i-have -->
+        <dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+        
 
         <!-- Test -->
         <dependency>
